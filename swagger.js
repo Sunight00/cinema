@@ -6,7 +6,7 @@ const doc = {
         description:"Actors Api Documentation"
     },
     host:"localhost:8000",
-    schemes:["http", "https"]
+    schemes:["https"]
 }
 
 const outputFile = './swagger.json';
