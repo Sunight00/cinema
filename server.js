@@ -28,6 +28,9 @@ app.use("/", (req, res, next) => {
     next();
 })
 app.use(errorHandler);
+proccess.on('unCaughtException', (err, origin )=>{
+    console.log(process.stderr.fd,`Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+});
 
 mongodb.initDb((err)=>{
     if(err){
