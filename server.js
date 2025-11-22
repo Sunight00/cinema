@@ -10,7 +10,7 @@ const passport = require('passport')
 const session = require('express-session')
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
-const client = require('react-dom/client');
+
 
 app
     .use(bodyParser.json())
