@@ -54,6 +54,9 @@
     },
     "/actors/": {
       "get": {
+        "tags": [
+          "Actors"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -69,7 +72,7 @@
       },
       "post": {
         "tags": [
-          "Users"
+          "Actors"
         ],
         "description": "",
         "parameters": [
@@ -122,6 +125,9 @@
     },
     "/actors/{id}": {
       "get": {
+        "tags": [
+          "Actors"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -148,7 +154,7 @@
       },
       "put": {
         "tags": [
-          "Users"
+          "Actors"
         ],
         "description": "",
         "parameters": [
@@ -208,6 +214,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Actors"
+        ],
         "description": "",
         "parameters": [
           {
@@ -235,6 +244,9 @@
     },
     "/actors/movies/{title}": {
       "get": {
+        "tags": [
+          "Actors"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -262,6 +274,9 @@
     },
     "/movies/": {
       "get": {
+        "tags": [
+          "Movies"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -277,7 +292,7 @@
       },
       "post": {
         "tags": [
-          "Users"
+          "Movies"
         ],
         "description": "",
         "parameters": [
@@ -321,6 +336,9 @@
     },
     "/movies/{id}": {
       "get": {
+        "tags": [
+          "Movies"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -347,7 +365,7 @@
       },
       "put": {
         "tags": [
-          "Users"
+          "Movies"
         ],
         "description": "",
         "parameters": [
@@ -398,6 +416,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Movies"
+        ],
         "description": "",
         "parameters": [
           {
@@ -425,6 +446,9 @@
     },
     "/movies/genre/{genre}": {
       "get": {
+        "tags": [
+          "Movies"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -452,6 +476,9 @@
     },
     "/movies/actor/{actor}": {
       "get": {
+        "tags": [
+          "Movies"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -467,6 +494,187 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/directors/": {
+      "get": {
+        "tags": [
+          "Directors"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Directors"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fullName": {
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
+                },
+                "nationality": {
+                  "example": "any"
+                },
+                "knownFor": {
+                  "example": "any"
+                },
+                "awardsCount": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/directors/{id}": {
+      "get": {
+        "tags": [
+          "Directors"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Directors"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fullName": {
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
+                },
+                "nationality": {
+                  "example": "any"
+                },
+                "knownFor": {
+                  "example": "any"
+                },
+                "awardsCount": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Directors"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"

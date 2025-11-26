@@ -4,6 +4,7 @@ const port = process.env.PORT || 8000;
 const mongodb = require("./data/database");
 const actorsRouter = require("./routes/actorsRoute");
 const moviesRouter = require("./routes/movieRoute");
+const directorsRouter = require("./routes/directorsRoute");
 const bodyParser = require('body-parser');
 const errorHandler = require('./middleware/routeErrorHandler');
 const passport = require('passport')
@@ -36,6 +37,7 @@ app.use('/', require('./routes/swagger'))
 app.get('/login', passport.authenticate('github'), (req, res) => {});
 app.use("/actors", actorsRouter);
 app.use("/movies", moviesRouter);
+app.use("/directors", directorsRouter);
 app.get('/logout', function(req, res, next){
     req.logOut(function(err){
         if (err){return next (err);}

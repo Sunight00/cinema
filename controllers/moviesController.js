@@ -4,6 +4,7 @@ const ObjectId = require("mongodb").ObjectId;
 const moviesController ={}
 
 moviesController.getAll = async (req, res) => {
+    //#swagger.tags = ['Movies']
     try {
         const movies = await mongodb
             .getDatabase()
@@ -20,6 +21,7 @@ moviesController.getAll = async (req, res) => {
 }
 
 moviesController.getSingle = async (req, res) => {
+    //#swagger.tags = ['Movies']
     try {
         const movieId = new ObjectId(req.params.id);
 
@@ -40,7 +42,7 @@ moviesController.getSingle = async (req, res) => {
 
 
 moviesController.createMovie = async (req, res) => {
-    //#swagger.tags = ['Users']
+    //#swagger.tags = ['Movies']
     try {
         const movie = {
             title: req.body.title,
@@ -68,7 +70,7 @@ moviesController.createMovie = async (req, res) => {
 
 
 moviesController.updateMovie = async (req, res) => {
-    //#swagger.tags = ['Users']
+    //#swagger.tags = ['Movies']
     try {
         const movieId = new ObjectId(req.params.id);
 
@@ -102,8 +104,10 @@ moviesController.updateMovie = async (req, res) => {
 
 
 moviesController.getMoviesByGenre = async (req, res) =>{
-    const genre = req.params.genre;
+    //#swagger.tags = ['Movies']
     try {
+
+        const genre = req.params.genre;
         const movies = await mongodb
             .getDatabase()
             .db("Cinema")
@@ -124,6 +128,7 @@ moviesController.getMoviesByGenre = async (req, res) =>{
 }
 
 moviesController.getMoviesByActor = async (req, res) =>{
+    //#swagger.tags = ['Movies']
     const actor = req.params.actor;
     try {
         const movies = await mongodb
@@ -146,6 +151,7 @@ moviesController.getMoviesByActor = async (req, res) =>{
 
 
 moviesController.deleteMovie = async (req, res) => {
+    //#swagger.tags = ['Movies']
     try {
         const movieId = new ObjectId(req.params.id);
         const result = await mongodb
