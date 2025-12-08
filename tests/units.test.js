@@ -1,6 +1,4 @@
-const fs = require("fs");
-const path = require("path");
-
+const fs = require('fs');
 
 describe('CHECK RESULT FILE',()=>{
     test('They should contain response from the actor controller', ()=>{
