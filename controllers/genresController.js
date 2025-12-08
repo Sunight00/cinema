@@ -3,6 +3,15 @@ const ObjectId = require("mongodb").ObjectId;
 
 const genresController = {};
 
+////////FOR TEST PURPOSES ONLY///////////
+const fs = require("fs");
+const path = require("path");
+const filePath = path.join(process.cwd(), "tests", "genreRes.json");
+///////////////////////////////////////
+//////////////////////////////////////
+
+
+
 // GET all genres
 genresController.getAllGenres = async (req, res) => {
     //#swagger.tags = ['Genres']
@@ -15,6 +24,17 @@ genresController.getAllGenres = async (req, res) => {
             .toArray();
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(genres);
+
+    /////// Writing to JSON file FOR TESTING PURPOSES ONLY /////
+    try {
+    // Overwrite the file with only the new actors array
+    const report = { statusCode:200, status: "success", message: "Genres data retrieved successfully", data: genres };
+    fs.writeFileSync(filePath, JSON.stringify(report, null, 2));
+    } catch (err) {
+    console.error("Error writing file:", err);
+    }
+    /////
+
     } catch (error) {
         res.status(500).json({ message: error.toString() });
     }
@@ -35,6 +55,17 @@ genresController.getGenreById = async (req, res) => {
         }
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(genre);
+
+    /////// Writing to JSON file FOR TESTING PURPOSES ONLY /////
+    try {
+    // Overwrite the file with only the new actors array
+    const report = { statusCode:200, status: "success", message: "Genre data retrieved successfully", data: genre };
+    fs.writeFileSync(filePath, JSON.stringify(report, null, 2));
+    } catch (err) {
+    console.error("Error writing file:", err);
+    }
+    /////
+
     } catch (error) {
         res.status(500).json({ message: error.toString() });
     }

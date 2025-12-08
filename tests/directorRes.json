@@ -1,0 +1,17 @@
+{
+  "statusCode": 200,
+  "status": "success",
+  "message": "Director data retrieved successfully",
+  "data": {
+    "_id": "692762909ccace21b19e47b3",
+    "fullName": "Christopher Nolan",
+    "age": 54,
+    "nationality": "British-American",
+    "knownFor": [
+      "Inception",
+      "The Dark Knight",
+      "Interstellar"
+    ],
+    "awardsCount": 34
+  }
+}

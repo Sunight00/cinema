@@ -2,7 +2,18 @@ const mongodb = require("../data/database");
 const ObjectId = require("mongodb").ObjectId;
 
 const actorsController ={}
+////////////////
+actorsController.h = async (req, res) => {
+    //#swagger.tags = ['Actors']
+    res.send("Hello from Actors Controller");
+}
 
+const fs = require("fs");
+const path = require("path");
+const filePath = path.join(process.cwd(), "tests", "actorsRes.json");
+
+
+/////////////
 actorsController.getAll = async (req, res) => {
     //#swagger.tags = ['Actors']
     try {
@@ -14,6 +25,15 @@ actorsController.getAll = async (req, res) => {
             .toArray();
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(actors);
+    /////// Writing to JSON file FOR TESTING PURPOSES ONLY /////
+    try {
+    // Overwrite the file with only the new actors array
+    const report = { statusCode:200, status: "success", message: "Actors data retrieved successfully", data: actors };
+    fs.writeFileSync(filePath, JSON.stringify(report, null, 2));
+    } catch (err) {
+    console.error("Error writing file:", err);
+    }
+    /////
 
     } catch (error) {
         res.status(500).json({ message: error });
@@ -35,6 +55,16 @@ actorsController.getSingle = async (req, res) => {
         }
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(actor);
+
+    /////// Writing to JSON file FOR TESTING PURPOSES ONLY /////
+    try {
+    // Overwrite the file with only the new actors array
+    const report = { statusCode:200, status: "success", message: "Actors data retrieved successfully", data: actors };
+    fs.writeFileSync(filePath, JSON.stringify(report, null, 2));
+    } catch (err) {
+    console.error("Error writing file:", err);
+    }
+    /////
     } catch (error) {
         res.status(500).json({ message: error.toString() });
     }

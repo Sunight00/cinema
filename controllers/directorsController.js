@@ -2,6 +2,14 @@ const mongodb = require("../data/database");
 const ObjectId = require("mongodb").ObjectId;
 
 const directorsController ={}
+
+////////FOR TEST PURPOSES ONLY///////////
+const fs = require("fs");
+const path = require("path");
+const filePath = path.join(process.cwd(), "tests", "directorRes.json");
+///////////////////////////////////////
+//////////////////////////////////////
+
 directorsController.getAllDirectors = async function (req, res) {
     //#swagger.tags = ['Directors']
     try {
@@ -13,7 +21,17 @@ directorsController.getAllDirectors = async function (req, res) {
                .toArray();
            res.setHeader('Content-Type', 'application/json');
            res.status(200).json(directors);
-   
+
+    /////// Writing to JSON file FOR TESTING PURPOSES ONLY /////
+    try {
+    // Overwrite the file with only the new actors array
+    const report = { statusCode:200, status: "success", message: "Directos data retrieved successfully", data: directors };
+    fs.writeFileSync(filePath, JSON.stringify(report, null, 2));
+    } catch (err) {
+    console.error("Error writing file:", err);
+    }
+    /////
+           
        } catch (error) {
            res.status(500).json({ message: error });
        }
@@ -33,6 +51,15 @@ directorsController.getDirectorById = async (req, res) => {
         }
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(director);
+    /////// Writing to JSON file FOR TESTING PURPOSES ONLY /////
+    try {
+    // Overwrite the file with only the new actors array
+    const report = { statusCode:200, status: "success", message: "Director data retrieved successfully", data: director };
+    fs.writeFileSync(filePath, JSON.stringify(report, null, 2));
+    } catch (err) {
+    console.error("Error writing file:", err);
+    }
+    /////
     } catch (error) {
         res.status(500).json({ message: error.toString() });
     }

@@ -1,0 +1,27 @@
+{
+  "statusCode": 200,
+  "status": "success",
+  "message": "Actors data retrieved successfully",
+  "data": [
+    {
+      "_id": "692cab838b731be54e6aec6f",
+      "fullName": "Denzel Washington",
+      "gender": "Male",
+      "age": 69,
+      "nationality": "American",
+      "knownFor": "Training Day",
+      "yearsActive": "1977–present",
+      "awardsCount": 39
+    },
+    {
+      "_id": "6936185115a4fd68c1e83e35",
+      "fullName": "Zendaya",
+      "gender": "Female",
+      "age": 28,
+      "nationality": "American",
+      "knownFor": "Euphoria",
+      "yearsActive": "2009–present",
+      "awardsCount": 22
+    }
+  ]
+}

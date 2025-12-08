@@ -1,0 +1,29 @@
+{
+  "statusCode": 200,
+  "status": "success",
+  "message": "Genres data retrieved successfully",
+  "data": [
+    {
+      "_id": "6931ffe8a0d32eaff2010485",
+      "name": "Action",
+      "description": "High-energy films featuring fights, stunts, and fast-paced sequences.",
+      "popularMovies": [
+        "Mad Max: Fury Road",
+        "John Wick",
+        "Die Hard"
+      ],
+      "originDecade": "1910s"
+    },
+    {
+      "_id": "69320faa200daa9c193ecce8",
+      "name": "Sci-Fi",
+      "description": "Films that explore futuristic concepts, technology, and science.",
+      "popularMovies": [
+        "Inception",
+        "Interstellar",
+        "The Matrix"
+      ],
+      "originDecade": "1900s"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "statusCode": 200,
+  "status": "success",
+  "message": "Actors data retrieved successfully",
+  "data": [
+    {
+      "_id": "691d694e380c75b860d48782",
+      "title": "La La La",
+      "genre": "Musical",
+      "releaseYear": 2016,
+      "mainActor": "Emma Stone"
+    },
+    {
+      "_id": "6922514649a035149e9477ac",
+      "title": "The Hunger Games",
+      "genre": "Adventure",
+      "releaseYear": 2012,
+      "mainActor": "Jennifer Lawrence"
+    },
+    {
+      "_id": "69225cfeb0bcc567ab6561af",
+      "title": "The Hunger Games",
+      "genre": "Adventure",
+      "releaseYear": 2012,
+      "mainActor": "Jennifer Lawrence"
+    }
+  ]
+}
